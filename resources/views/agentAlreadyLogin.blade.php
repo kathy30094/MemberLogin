@@ -9,7 +9,6 @@
 
         <!-- 加入X-CSRF-TOKEN -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
         <title>Laravel</title>
 
         <!-- Fonts -->

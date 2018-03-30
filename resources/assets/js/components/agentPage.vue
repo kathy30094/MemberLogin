@@ -3,7 +3,7 @@
     <h1>Agent {{theID}}</h1>
 
     <!-- logout button -->
-    <button type="button" @click="logOut" onclick="{location.href='http://127.0.0.1:8000'}">登出</button>
+    <button type="button" @click="logOut" onclick="{location.href='http://192.168.4.114'}">登出</button>
 
     <div class="newMember">
       <h2>新增</h2>   
@@ -177,7 +177,7 @@ export default {
             sessionStorage.clear();
             localStorage.clear();
             alert("登出成功");
-            location.href='http://localhost:8000';
+            location.href='http://192.168.4.114';
           }
         })
         .catch(ex => {});
@@ -258,7 +258,7 @@ export default {
       let searchDatas = {
         id: this.searchDatas.ID,
       }
-      this.checkCSRFTOKEN();
+      //this.checkCSRFTOKEN();
       await axios
         .post("search", searchDatas)
         .then(res => {

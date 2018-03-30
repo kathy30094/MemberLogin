@@ -79,7 +79,7 @@ export default {
                 //document.cookie = "name = abc"+";"+"expires = expire_days=15000";  //cookie test
                 console.log(res.data);
                 if(res.data.ret === 0) {
-                    alert('登入成功');
+                    //alert('登入成功');
                     sessionStorage.token = res.data.token;
                     sessionStorage.id = res.data.id;
                 } else {
@@ -96,10 +96,10 @@ export default {
                 console.log(res.data);
                 if(res.data.ret == 0) {
                     if(res.data.status == '0'){
-                        location.href='http://laravel.local/agentpage';
+                        location.href='http://192.168.4.114/agentpage';
                     }
                     else{
-                        location.href='http://localhost:8000/playerpage';
+                        location.href='http://192.168.4.114/playerpage';
                     }
                 }
             })

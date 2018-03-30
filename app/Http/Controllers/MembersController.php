@@ -91,12 +91,13 @@ class MembersController extends Controller
     public function Logout(Request $request)
     {
         $theToken = $request->session()->get('_token');
+
         if(Redis::exists($theToken))
         {
         Redis::del($theToken);
         $retData['token'] = $request->session()->get('_token');
         $retData['ret']=0;
-        //$request->session()->regenerate();
+        
         return $retData;
         }
     }
@@ -155,10 +156,9 @@ class MembersController extends Controller
         {
             $theToken = $request->session()->get('_token');
             $theSessionsArray = array_merge($request->session()->all(),$member[0]->toArray());
-            $session_Json = json_encode($theSessionsArray);
 
             //put token and session into RedisDB
-            Redis::set($theToken,$session_Json);
+            Redis::set($theToken,json_encode($theSessionsArray));
             $value = Redis::get($theToken);
 
             $retData['ret'] = 0;
@@ -224,8 +224,6 @@ class MembersController extends Controller
     {
         $isIn = 'f';
 
-        $arrayOfIDs = \App\Functions\MembersBellow::MembersBellow($theID);  // 得到自己有權限的ID表
-
         $idToSearch = (int)$idToSearch;
 
         if($idToSearch == $theID) //如果有指定要搜什麼  把$theID改成要搜的ID
@@ -234,13 +232,18 @@ class MembersController extends Controller
         }
         else
         {
-            foreach($arrayOfIDs as $memberID)  //int //巡迴查看idToSearch是否有在自己的ID權限內
-            {
-                if($memberID == $idToSearch)
-                {   
-                    $isIn = 't'; //在有權限的ID表內
-                }
-            }
+            $arrayOfIDs = \App\Functions\MembersBellow::MembersBellow($theID);  // 得到自己有權限的ID表
+
+            if(in_array($idToSearch, $arrayOfIDs))
+                $isIn = 't';
+
+            // foreach($arrayOfIDs as $memberID)  //int //巡迴查看idToSearch是否有在自己的ID權限內
+            // {
+            //     if($memberID == $idToSearch)
+            //     {   
+            //         $isIn = 't'; //在有權限的ID表內
+            //     }
+            // }
         }
         return $isIn;
     }

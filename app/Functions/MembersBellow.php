@@ -13,6 +13,7 @@ class MembersBellow
         $treeList = \App\MembersID::all()->toArray();
 
         MembersBellow::searchEach($ID,$finalArrayIsUnder,$treeList);
+        
         return $finalArrayIsUnder;
     }
 
@@ -28,10 +29,9 @@ class MembersBellow
                 array_push($theUnders, $leaf);
             }
         }
-        //return $theUnders;
+
         if($theUnders != null)  //如果$theUnders沒有直了的話  代表已經找到底
         {
-           //$treeList = array_diff($treeList, $theUnders); //從$treeList中拿掉已經被抓出來要處理的東西
            for($i=0;$i<Count($theUnders);$i++)
            {
                 MembersBellow::searchEach($theUnders[$i]['id'],$finalArrayIsUnder, $treeList);  ///往下再做處理  把還沒被處理過得資料傳下去

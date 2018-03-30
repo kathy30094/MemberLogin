@@ -42,7 +42,7 @@ class Kernel extends HttpKernel
         ],
         'CheckToken' =>
         [
-            \App\Http\Middleware\VerifyCsrfToken::class,
+            //\App\Http\Middleware\VerifyCsrfToken::class,
             \App\Http\Middleware\CheckToken::class,
         ],
         'CheckIsAgent' =>
