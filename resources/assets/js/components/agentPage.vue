@@ -5,6 +5,8 @@
     <!-- logout button -->
     <button type="button" @click="logOut" onclick="{location.href='http://192.168.4.114'}">登出</button>
 
+    <button type="button" @click="toChatroom">聊天</button>
+
     <div class="newMember">
       <h2>新增</h2>   
 
@@ -127,6 +129,7 @@
 </template>
 
 <script>
+window.name=sessionStorage.token;
 import axios from "axios";
 
 export default {
@@ -147,23 +150,24 @@ export default {
         email: "",
         status: "0",
       },
-
       updateData: {
         psd: "",
         name: "",
         phone: "",
         email: "",
       },
-      
       searchDatas: {
         ID: "",
         selected: "3",
       },
-      
     };
   },
 
   methods: {
+    async toChatroom() {
+      window.location="http://localhost:10001";
+    },
+
 
     //logout
     async logOut() {

@@ -52795,7 +52795,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
 
+window.name = sessionStorage.token;
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -52816,36 +52819,56 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         email: "",
         status: "0"
       },
-
       updateData: {
         psd: "",
         name: "",
         phone: "",
         email: ""
       },
-
       searchDatas: {
         ID: "",
         selected: "3"
       }
-
     };
   },
 
 
   methods: {
-
-    //logout
-    logOut: function () {
+    toChatroom: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var _this = this;
-
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                window.location = "http://localhost:10001";
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function toChatroom() {
+        return _ref.apply(this, arguments);
+      }
+
+      return toChatroom;
+    }(),
+
+
+    //logout
+    logOut: function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var _this = this;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
                 this.checkCSRFTOKEN();
-                _context.next = 3;
+                _context2.next = 3;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("logOut").then(function (res) {
                   console.log(res.data);
                   if (res.data.ret == 0) {
@@ -52859,14 +52882,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 3:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function logOut() {
-        return _ref.apply(this, arguments);
+        return _ref2.apply(this, arguments);
       }
 
       return logOut;
@@ -52875,13 +52898,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     //update
     updateMember: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
         var _this2 = this;
 
         var MD5, psdArray, psd, updateData;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 MD5 = __webpack_require__(6);
                 psdArray = MD5(this.updateData.psd);
@@ -52895,7 +52918,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 };
 
                 this.checkCSRFTOKEN();
-                _context2.next = 7;
+                _context3.next = 7;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("updateMember", updateData).then(function (res) {
                   console.log(res.data);
                   _this2.search();
@@ -52907,14 +52930,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 7:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
       function updateMember() {
-        return _ref2.apply(this, arguments);
+        return _ref3.apply(this, arguments);
       }
 
       return updateMember;
@@ -52923,15 +52946,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     //delete
     deleteMember: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(member) {
+      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(member) {
         var _this3 = this;
 
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
                 this.checkCSRFTOKEN();
-                _context3.next = 3;
+                _context4.next = 3;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("deleteMember", member).then(function (res) {
                   console.log(res.data);
                   _this3.search();
@@ -52945,14 +52968,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 4:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
       function deleteMember(_x) {
-        return _ref3.apply(this, arguments);
+        return _ref4.apply(this, arguments);
       }
 
       return deleteMember;
@@ -52961,13 +52984,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     //create
     newMember: function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
         var _this4 = this;
 
         var MD5, psdArray, psd, memberData;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
                 MD5 = __webpack_require__(6);
                 psdArray = MD5(this.memberData.psd);
@@ -52982,7 +53005,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 };
 
                 this.checkCSRFTOKEN();
-                _context4.next = 7;
+                _context5.next = 7;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("newMember", memberData).then(function (res) {
                   if (res.data.ret == 0) {
                     _this4.search();
@@ -52991,14 +53014,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 7:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee5, this);
       }));
 
       function newMember() {
-        return _ref4.apply(this, arguments);
+        return _ref5.apply(this, arguments);
       }
 
       return newMember;
@@ -53007,19 +53030,19 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
     //search
     search: function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
         var _this5 = this;
 
         var searchDatas;
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
                 searchDatas = {
                   id: this.searchDatas.ID
                   //this.checkCSRFTOKEN();
                 };
-                _context5.next = 3;
+                _context6.next = 3;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("search", searchDatas).then(function (res) {
                   console.log(res.data);
                   if (res.data.ret == 1) {
@@ -53034,14 +53057,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 3:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, this);
+        }, _callee6, this);
       }));
 
       function search() {
-        return _ref5.apply(this, arguments);
+        return _ref6.apply(this, arguments);
       }
 
       return search;
@@ -53129,6 +53152,10 @@ var render = function() {
       },
       [_vm._v("登出")]
     ),
+    _vm._v(" "),
+    _c("button", { attrs: { type: "button" }, on: { click: _vm.toChatroom } }, [
+      _vm._v("聊天")
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "newMember" }, [
       _c("h2", [_vm._v("新增")]),
@@ -53892,7 +53919,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
 
+window.name = sessionStorage.token;
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -53909,28 +53940,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
     methods: {
-        logOut: function () {
+        toChatroom: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-                var _this = this;
-
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                _context.next = 2;
-                                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('logOut', { token: localStorage.token }).then(function (res) {
-                                    console.log(res.data);
-                                    if (res.data.ret === 0) {
-                                        _this.isLogin = 'logOut';
-                                        localStorage.token = null;
-                                        alert('登出成功');
-                                    }
-                                }).catch(function (ex) {});
+                                window.location = "http://localhost:3000";
 
-                            case 2:
-                                this.isChange = 'unchanged';
-
-                            case 3:
+                            case 1:
                             case 'end':
                                 return _context.stop();
                         }
@@ -53938,8 +53956,43 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 }, _callee, this);
             }));
 
-            function logOut() {
+            function toChatroom() {
                 return _ref.apply(this, arguments);
+            }
+
+            return toChatroom;
+        }(),
+        logOut: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var _this = this;
+
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                this.checkCSRFTOKEN();
+                                _context2.next = 3;
+                                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("logOut").then(function (res) {
+                                    console.log(res.data);
+                                    if (res.data.ret == 0) {
+                                        _this.isLogin = "logOut";
+                                        sessionStorage.clear();
+                                        localStorage.clear();
+                                        alert("登出成功");
+                                        location.href = 'http://192.168.4.114';
+                                    }
+                                }).catch(function (ex) {});
+
+                            case 3:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, this);
+            }));
+
+            function logOut() {
+                return _ref2.apply(this, arguments);
             }
 
             return logOut;
@@ -53966,11 +54019,17 @@ var render = function() {
         {
           attrs: {
             type: "button",
-            onclick: "{location.href='http://127.0.0.1:8000'}"
+            onclick: "{location.href='http://192.168.4.114'}"
           },
           on: { click: _vm.logOut }
         },
         [_vm._v("登出")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { attrs: { type: "button" }, on: { click: _vm.toChatroom } },
+        [_vm._v("聊天")]
       )
     ])
   ])

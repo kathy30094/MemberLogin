@@ -170,7 +170,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('login','MembersController@loginSaveTocken');
+Route::post('login','MembersController@loginSaveToken');
 
 Route::post('token','MembersController@IsLogin');
 

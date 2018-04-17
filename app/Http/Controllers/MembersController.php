@@ -113,7 +113,7 @@ class MembersController extends Controller
             'email' => 'nullable|email',
             'status' => 'required|regex: /^[0-1]{1}$/ ',
         ]);
-        
+ 
         //新增資料到資料庫  /transaction
         $memberID = new \App\MembersID;
         $memberID->parentID = MembersController::getTheID($request);
@@ -138,7 +138,7 @@ class MembersController extends Controller
     }
 
     //登入
-    public function loginSaveTocken(Request $request)
+    public function loginSaveToken(Request $request)
     {
         $this->validate($request,[
             'acc' => 'required|alpha_num',
@@ -155,6 +155,9 @@ class MembersController extends Controller
         if($member != null )
         {
             $theToken = $request->session()->get('_token');
+
+            $roomBelow = 
+
             $theSessionsArray = array_merge($request->session()->all(),$member[0]->toArray());
 
             //put token and session into RedisDB
