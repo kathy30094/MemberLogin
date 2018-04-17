@@ -3,7 +3,7 @@
     <h1>Agent {{theID}}</h1>
 
     <!-- logout button -->
-    <button type="button" @click="logOut" onclick="{location.href='http://192.168.4.114'}">登出</button>
+    <button type="button" @click="logOut" onclick="{location.href='http://192.168.4.114:8080'}">登出</button>
 
     <button type="button" @click="toChatroom">聊天</button>
 
@@ -181,7 +181,7 @@ export default {
             sessionStorage.clear();
             localStorage.clear();
             alert("登出成功");
-            location.href='http://192.168.4.114';
+            location.href='http://192.168.4.114:8080';
           }
         })
         .catch(ex => {});

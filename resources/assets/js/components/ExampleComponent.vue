@@ -96,10 +96,10 @@ export default {
                 console.log(res.data);
                 if(res.data.ret == 0) {
                     if(res.data.status == '0'){
-                        location.href='http://192.168.4.114/agentpage';
+                        location.href='http://192.168.4.114:8080/agentpage';
                     }
                     else{
-                        location.href='http://192.168.4.114/playerpage';
+                        location.href='http://192.168.4.114:8080/playerpage';
                     }
                 }
             })
